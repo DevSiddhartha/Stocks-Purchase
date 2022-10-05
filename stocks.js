@@ -27,7 +27,18 @@ function submitHandler()
 {
     if (initialPrice.value === "" || stocksQuantity.value === "" || currentPrice.value === "")
     {
-        alert("Please fill out all the fields");
+        output.innerText = "Please fill out all the fields!";
+        return;
+    }
+    if (initialPrice.value < 0 || stocksQuantity.value < 0 || currentPrice.value < 0)
+    {
+        output.innerText = "Please fill out non negative values for every field";
+        return;
+    }
+    if (initialPrice.value === '0' || stocksQuantity.value === '0' || currentPrice.value === '0')
+    {
+        output.innerText = "Please fill out non zero values for every field";
+        return;
     }
     var ip = Number(initialPrice.value);
     var qty = Number(stocksQuantity.value);
